@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Drum Kit</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+</head>
+
+<body>
+
+  <h1 id="title">Calculate your age now</h1>
+  <div class="set">
+    <label for="dob">Enter your date of birth:</label>
+    <input type="date" id="dob" name="dob">
+    <button type="button" id="me" name="calculator" style="background-color: red;">calculate</button>
+    <h2 id="result">enter your date of birth</h2>
+  </div>
+
+  <footer>
+    Mazen Ebada.
+  </footer>
+  <script>
+    const button = document.getElementById('me');
+    const result = document.getElementById('result');
+
+
+    button.addEventListener('click', function() {
+
+      const dobInput = document.getElementById('dob');
+      const dobValue = dobInput.value;
+
+
+      const today = new Date();
+      const birthDate = new Date(dobValue);
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const monthDiff = today.getMonth() - birthDate.getMonth();
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+
+
+      result.textContent = "Your age is: " + age;
+
+
+
+    });
+  </script>
+</body>
+
+</html>
